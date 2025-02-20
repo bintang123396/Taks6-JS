@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Aplikasi Manajemen Keuangan</h1>
+
+<label for="pengeluaranBulanan">Pengeluaran Bulanan:</label>
+<input type="number" id="pengeluaranBulanan" value="0"><br><br>
+
+<label for="pengeluaranTahunan">Pengeluaran Tahunan:</label>
+<input type="number" id="pengeluaranTahunan" value="0"><br><br>
+
+<button onclick="hitungTotal()">Total Pengeluaran</button>
+<button onclick="bandingkanPengeluaran()">Bandingkan Pengeluaran</button>
+<button onclick="hitungRataRata()">Rata-rata Pengeluaran</button>
+
+<div id="hasil"></div>
+
+
+
+<script>
+
+alert("Selemat Datang di Aplikasi Manajemen Keuangan");
+
+    function hitungTotal() {
+  let bulanan = parseFloat(document.getElementById("pengeluaranBulanan").value);
+  let tahunan = parseFloat(document.getElementById("pengeluaranTahunan").value);
+
+  // Operator + untuk penjumlahan
+  let total = bulanan + tahunan;
+
+  document.getElementById("hasil").innerHTML = "Total Pengeluaran: " + total;
+}
+
+function bandingkanPengeluaran() {
+  let bulanan = parseFloat(document.getElementById("pengeluaranBulanan").value);
+  let tahunan = parseFloat(document.getElementById("pengeluaranTahunan").value);
+
+  let pesan = "";
+
+  // Operator perbandingan (>, <, ==)
+  if (bulanan > tahunan) {
+    pesan = "Pengeluaran bulanan lebih besar dari pengeluaran tahunan.";
+  } else if (bulanan < tahunan) {
+    pesan = "Pengeluaran bulanan lebih kecil dari pengeluaran tahunan.";
+  } else {
+    pesan = "Pengeluaran bulanan sama dengan pengeluaran tahunan.";
+  }
+
+  document.getElementById("hasil").innerHTML = pesan;
+}
+
+function hitungRataRata() {
+    let tahunan = parseFloat(document.getElementById("pengeluaranTahunan").value);
+    let rataRata = tahunan / 12; // Operator / untuk pembagian
+    document.getElementById("hasil").innerHTML = "Rata-rata pengeluaran bulanan: " + rataRata.toFixed(2); // Menampilkan 2 angka desimal
+}
+
+</script>
+    
+</body>
+</html>
